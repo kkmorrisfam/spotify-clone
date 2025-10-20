@@ -1,10 +1,13 @@
 import { Router } from 'express';
+import { getAdmin } from '../controller/admin.controller.js';
 
 const router = Router();
 
 // router.get('/')
 router.get("/", (req, res) => {
     res.send("User route with GET method");
- })
+});
 
- export default router;
+
+
+export default router;

@@ -19,7 +19,8 @@ dotenv.config({ path: path.resolve(process.cwd(), "../.env") });
 const app = express();
 const PORT = process.env.PORT
 
-
+//middleware
+app.use(express.json());  // to parse req.body
 
 app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes);
