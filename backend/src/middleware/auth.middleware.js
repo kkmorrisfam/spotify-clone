@@ -1,6 +1,11 @@
 import { clerkClient } from "@clerk/express";
 
+// console.log("Auth Object:", req.auth)
+
 export const protectRoute = async (req, res, next) => {
+    console.log("Auth Object:", req.auth);
+    console.log("Inside protectRoute");
+
     if (!req.auth.userId){
         return res.status(401).json({message: "Unauthorized - must be logged in"});
         
@@ -12,6 +17,7 @@ export const protectRoute = async (req, res, next) => {
 export const requireAdmin = async(req, res, next) => {
     try {
         const currentUser = await clerkClient.users.getUser(req.auth.userId);
+        console.log("Fetched Clerk user: ", currentUser);
         const isAdmin = process.env.ADMIN_EMAIL === currentUser.primaryEmailAddress?.emailAddress
 
         if(!isAdmin) {

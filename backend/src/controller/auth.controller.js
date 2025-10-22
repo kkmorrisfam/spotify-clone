@@ -1,9 +1,11 @@
 import { User } from "../models/user.model.js";
 
 export const authCallback = async (req, res, next) => {
+    // console.log("Inside authCallback");
     try {
         const { id, firstName, lastName, imageUrl} = req.body;
-        
+       
+        // console.log("Attempting to find user in Mongo...");
         // check if user already exists
         const user = await User.findOne({clerkId: id});
 
