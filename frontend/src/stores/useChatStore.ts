@@ -16,6 +16,7 @@ export const useChatStore = create<ChatStore>((set) => ({
     
     fetchUsers : async () => {
         set({ isLoading: true, error: null});
+        console.log("Inside fetchUsers");
         try {
             const response = await axiosInstance.get("/users");
             console.log("Fetched users from backend:", response.data);
