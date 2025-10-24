@@ -37,13 +37,13 @@ export const useMusicStore = create<MusicStore>((set ) => ({
     // pass the id to get the album, backend gets album by id
     fetchAlbumById: async(id: string) => {
         set({isLoading: true, error: null})
-        console.log("Inside fetchAlbumById");
+        // console.log("Inside fetchAlbumById");
         try {
-            console.log("Inside fetchAlbumById try block")
+            // console.log("Inside fetchAlbumById try block")
             const response = await axiosInstance.get(`/albums/${id}`);
-            console.log("Inside fetchAlbumById try block after get")
-            console.log("after response object",response);
-            console.log("useMusicStore/response.data: ", response.data);
+            // console.log("Inside fetchAlbumById try block after get")
+            // console.log("after response object",response);
+            // console.log("useMusicStore/response.data: ", response.data);
             set({ currentAlbum: response.data });
             
         } catch (error:any) {

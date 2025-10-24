@@ -12,18 +12,18 @@ export const getAllAlbums = async  (req, res, next) => {
 
 export const getAlbumById = async (req, res, next) => {
     try {
-        console.log("backend params in getAlbumById", req.params);
+        // console.log("backend params in getAlbumById", req.params);
         const { albumId } = req.params;
         
         if (!mongoose.Types.ObjectId.isValid(albumId)) {
-            console.log("Invalid ObjectId:", albumId);
+            // console.log("Invalid ObjectId:", albumId);
             return res.status(400).json({ message: "Invalid album ID" });
         }
 
 
-
+        // populate must match field name "songs"
         const album = await Album.findById(albumId).populate("songs");
-        console.log("getAlbumById- album: ");
+        // console.log("getAlbumById- album: ");
         if (!album) {
             return res.status(404).json({ message: "Album not found"});
 
