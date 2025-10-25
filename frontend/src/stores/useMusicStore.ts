@@ -8,6 +8,9 @@ interface MusicStore {
     isLoading: boolean;
     error: string | null;
     currentAlbum: Album | null;
+    featuredSongs: Song[];
+    madeForYouSongs: Song[];
+    trendingSongs: Song[];
 
     // just updating state, not returning a value <void>
     fetchAlbums: () => Promise<void>;
@@ -21,6 +24,9 @@ export const useMusicStore = create<MusicStore>((set ) => ({
     isLoading: false,
     error: null,
     currentAlbum: null,
+    featuredSongs: [],
+    madeForYouSongs: [],
+    trendingSongs: [],
 
     fetchAlbums: async () => {
        set({ isLoading: true, error: null });
