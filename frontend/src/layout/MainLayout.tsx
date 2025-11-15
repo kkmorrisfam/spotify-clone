@@ -31,6 +31,7 @@ const MainLayout = () => {
 
     </ResizablePanelGroup>
     
+    <PlaybackControls />
     </div>
 }
 
